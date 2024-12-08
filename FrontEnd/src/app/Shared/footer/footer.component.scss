@@ -1,0 +1,32 @@
+/* Define colors */
+.bg-light-cream {
+    background-color: #F8F4E1; /* Light cream color */
+}
+
+.bg-light-brown {
+    background-color: #AF8F6F; /* Light brown color */
+}
+
+.text-dark-brown {
+    color: #74512D; /* Dark brown color */
+}
+
+.text-light-brown {
+    color: #543310; /* Deep brown color */
+}
+
+/* Container Styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Footer Links */
+a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #543310; /* On hover, links change to light cream color */
+}

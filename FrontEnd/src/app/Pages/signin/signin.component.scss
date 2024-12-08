@@ -1,0 +1,156 @@
+/* General container styling */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px); /* Subtract header height */
+    padding: 20px;
+    box-sizing: border-box;
+    flex-direction: row;
+    position: relative; /* This will be needed to position the form container over the image */
+  }
+  
+  /* Image container styling */
+  .image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    max-width: 100%;
+    position: relative; /* Needed for absolute positioning of the form */
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Form container styling */
+  .form-container {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 100%;
+    margin: 5rem;
+    position: relative; /* Form container is relative to image-container */
+    z-index: 10; /* Ensure the form is on top of the image */
+  }
+  
+  .form-header h2 {
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+  
+  .underline {
+    width: 50px;
+    height: 3px;
+    background: #74512D;
+    margin: 0 auto 1.5rem;
+  }
+  
+  /* Form group styling */
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  /* Button styling */
+  .btn {
+    width: 100%;
+    padding: 0.8rem;
+    background: #74512D;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background 0.3s;
+  }
+  
+  .btn:hover {
+    background: #AF8F6F;
+  }
+  
+  /* Toggle link styling */
+  .toggle-link {
+    margin-top: 1rem;
+  }
+  
+  .toggle-link a {
+    color: #74512D;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      height: auto; /* Reset height to auto for mobile */
+      padding: 10px; /* Less padding on mobile */
+    }
+  
+    .image-container {
+      margin-left: 0;
+      margin-bottom: 2rem;
+    }
+  
+    .form-container {
+      position: absolute; /* Make the form overlay on top of the image */
+      top: 20%; /* Position the form in a desired location */
+      left: 50%;
+      transform: translateX(-50%); /* Center the form */
+      margin: 0;
+      padding: 1.5rem;
+      max-width: 100%;
+      text-align: left;
+      z-index: 10; /* Ensure it appears above the image */
+    }
+  
+    .image-container img {
+      opacity: 0.5;
+      margin-top: 2rem;
+    }
+  
+    .form-header .underline {
+      margin: 0 0 1.5rem;
+    }
+  
+    .form-group {
+      margin-bottom: 0.8rem;
+    }
+  
+    .form-group input,
+    .form-group select {
+      padding: 0.6rem;
+    }
+  
+    .btn {
+      padding: 0.7rem;
+    }
+  
+    .toggle-link a {
+      font-size: 0.9rem;
+    }
+  }
+  

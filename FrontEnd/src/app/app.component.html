@@ -1,0 +1,18 @@
+<div *ngIf="role === 'Guest'|| !role">
+    <app-header-component></app-header-component>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+</div>
+
+<div *ngIf="role === 'Receptionist'">
+   <app-receptionist-dashboard></app-receptionist-dashboard>
+</div>
+<div *ngIf="role === 'Manager'">
+    <app-manager-dashboard></app-manager-dashboard>
+</div>
+
+<div *ngIf="role === 'Housekeeping'">
+    <app-housekeeping-dashboard></app-housekeeping-dashboard>
+</div>
+
+

@@ -1,0 +1,40 @@
+<header class="header">
+  <div class="header__content">
+    <!-- Logo Section -->
+    <div class="logo">
+      <img src="assets/images/Hotels/hotelicon.jpg" alt="LuxHotel Logo" class="logo__image">
+      <span class="logo__text">EliteStay</span>
+    </div>
+
+    <!-- Hamburger Icon for Mobile -->
+    <button class="hamburger" (click)="toggleMenu()">
+      <span *ngIf="!isMenuOpen">☰</span>
+      <span *ngIf="isMenuOpen">✖</span>
+    </button>
+
+    <!-- Navigation Menu -->
+    <nav class="nav" [class.nav--open]="isMenuOpen">
+      <a class="nav__link" (click)="closeMenu()" [routerLink]="['/home']">Home</a>
+      <a class="nav__link" (click)="closeMenu()" [routerLink]="['/all-rooms']">Rooms</a>
+      <a class="nav__link" (click)="closeMenu()" [routerLink]="['/user-bookings']">Bookings</a>
+
+      <div class="auth-buttons">
+        <ng-container *ngIf="isLoggedIn; else loginTemplate">
+          <!-- Profile Icon -->
+          <button (click)="toggleLogoutMenu()" class="profile-button">
+            <img src="assets/images/Hotels/hotelicon.jpg" alt="Profile" class="profile-icon"/>
+          </button>
+          <!-- Logout Button -->
+          <div *ngIf="showLogoutMenu" class="auth-buttons__signin">
+            <button (click)="logout()">Logout</button>
+          </div>
+        </ng-container>
+        
+        <ng-template #loginTemplate>
+          <!-- Signin Button -->
+          <button [routerLink]="['/signin']" class="auth-buttons__signin">Sign in</button>
+        </ng-template>
+      </div>
+    </nav>
+  </div>
+</header>

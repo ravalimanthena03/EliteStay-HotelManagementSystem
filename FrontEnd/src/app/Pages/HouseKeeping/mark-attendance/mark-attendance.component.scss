@@ -1,0 +1,57 @@
+.attendance-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background-color: #f4f4f4;
+  
+    .attendance-card {
+      width: 70%; /* Reduced width */
+      max-width: 400px; /* Reduced max width */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      background-color: #ffffff;
+      padding: 20px;
+  
+      .calendar-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+  
+        mat-calendar {
+          width: 90%; /* Adjusted size to make it slightly smaller */
+          max-width: 500px; /* Reduced max width */
+          font-size: 1rem; /* Reduced font size */
+        }
+      }
+  
+      .actions {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+  
+        button {
+          padding: 8px 24px; /* Adjusted padding for smaller button */
+          font-size: 1rem; /* Reduced font size */
+        }
+      }
+    }
+  }
+  
+  
+  .primary-brown-button {
+    background-color: #AF8F6F;
+    color: white; 
+  }
+  ::ng-deep .mat-calendar-body-selected {
+    background-color: #6c4f3d !important; /* Brown color for the selected date */
+    color: white !important;             /* Text color */
+    border-radius: 50%;                  /* Optional: Keep circular shape */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Optional: Add some shadow for style */
+  }
+  
+  /* Add hover effect for the selected date */
+  ::ng-deep .mat-calendar-body-selected:hover {
+    background-color: #5a3d2b !important; /* Darker brown for hover */
+    color: white !important;
+  }

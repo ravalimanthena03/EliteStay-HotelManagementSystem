@@ -1,0 +1,56 @@
+<div class="bg-gray-100 min-h-screen p-6">
+  <div class="max-w-7xl mx-auto space-y-8">
+    <h1 class="text-3xl font-bold text-center text-blue-600">Hotel Dashboard</h1>
+
+    <!-- Total Revenue and Total Bookings -->
+    <div class="grid grid-cols-2 gap-6">
+      <div class="bg-white rounded-lg shadow-lg p-4 text-center">
+        <h2 class="text-xl font-semibold text-gray-800">Total Revenue</h2>
+        <p class="text-4xl font-bold text-green-500">{{ totalRevenue | currency }}</p>
+      </div>
+      <div class="bg-white rounded-lg shadow-lg p-4 text-center">
+        <h2 class="text-xl font-semibold text-gray-800">Total Bookings</h2>
+        <p class="text-4xl font-bold text-indigo-500">{{ totalRoomsBooked }}</p>
+      </div>
+    </div>
+
+    <!-- Daily Revenue and Feedbacks Chart -->
+    <div class="grid grid-cols-2 gap-6 mt-8">
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">Daily Revenue for Past Week</h2>
+        <canvas id="barChart" class="max-w-full h-64"></canvas>
+      </div>
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">Guest Feedbacks</h2>
+        <canvas id="reviewsChart" class="max-w-full h-64"></canvas>
+      </div>
+    </div>
+
+    <!-- Service Ratings Section -->
+    <div class="mt-8 grid grid-cols-3 gap-6">
+      <div class="bg-white rounded-lg p-4 shadow-lg">
+        <h2 class="text-lg font-semibold">Service Ratings</h2>
+        <p class="text-red-500">Lowest Rating: {{ lowestServiceRating?.serviceRating | number: '1.1-1' }}</p>
+        <p>Comments: "{{ lowestServiceRating?.comments }}"</p>
+        <p class="text-gray-500">Review Date: {{ lowestServiceRating?.reviewDate | date: 'longDate' }}</p>
+        <p class="text-green-500 mt-2">Highest Rating: {{ highestServiceRating?.serviceRating | number: '1.1-1' }}</p>
+      </div>
+
+      <div class="bg-white rounded-lg p-4 shadow-lg">
+        <h2 class="text-lg font-semibold">Dining Ratings</h2>
+        <p class="text-red-500">Lowest Rating: {{ lowestDiningRating?.diningRating | number: '1.1-1' }}</p>
+        <p>Comments: "{{ lowestDiningRating?.comments }}"</p>
+        <p class="text-gray-500">Review Date: {{ lowestDiningRating?.reviewDate | date: 'longDate' }}</p>
+        <p class="text-green-500 mt-2">Highest Rating: {{ highestDiningRating?.diningRating | number: '1.1-1' }}</p>
+      </div>
+
+      <div class="bg-white rounded-lg p-4 shadow-lg">
+        <h2 class="text-lg font-semibold">Staff Ratings</h2>
+        <p class="text-red-500">Lowest Rating: {{ lowestStaffRating?.staffRating | number: '1.1-1' }}</p>
+        <p>Comments: "{{ lowestStaffRating?.comments }}"</p>
+        <p class="text-gray-500">Review Date: {{ lowestStaffRating?.reviewDate | date: 'longDate' }}</p>
+        <p class="text-green-500 mt-2">Highest Rating: {{ highestStaffRating?.staffRating | number: '1.1-1' }}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<!-- src/app/assigned-tasks/assigned-tasks.component.html -->
+<div class="container">
+    <h2>Assigned Tasks</h2>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+  
+    <mat-table *ngIf="!isLoading && assignedTasks.length > 0" [dataSource]="assignedTasks" class="mat-elevation-z8">
+      <!-- Columns -->
+      <ng-container matColumnDef="serviceType">
+        <mat-header-cell *matHeaderCellDef> Service Type </mat-header-cell>
+        <mat-cell *matCellDef="let task"> {{ task.serviceType }} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="requestTime">
+        <mat-header-cell *matHeaderCellDef> Request Time </mat-header-cell>
+        <mat-cell *matCellDef="let task"> {{ task.requestTime | date:'short' }} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+        <mat-cell *matCellDef="let task"> {{ task.status }} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+        <mat-cell *matCellDef="let task">
+          <button mat-raised-button class="primary-brown-button" (click)="completeTask(task.serviceRequestId)">
+            Mark as Completed
+          </button>
+        </mat-cell>
+      </ng-container>
+  
+      <!-- Table Header and Rows -->
+      <mat-header-row *matHeaderRowDef="['serviceType', 'requestTime', 'status', 'actions']"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: ['serviceType', 'requestTime', 'status', 'actions']"></mat-row>
+    </mat-table>
+  
+    <p *ngIf="!isLoading && assignedTasks.length === 0">No tasks assigned.</p>
+  </div>
+  

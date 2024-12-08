@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>Assign Staff</h2>
+<mat-dialog-content>
+  <p>Assign this task for <strong>{{ data.serviceType }}</strong> requested by Guest ID: <strong>{{ data.guestId }}</strong></p>
+
+  <div *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div *ngIf="!isLoading">
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Select Staff</mat-label>
+      <mat-select [(value)]="selectedStaff">
+        <mat-option *ngFor="let staff of availableStaff" [value]="staff">
+          {{ staff.staffId }} ({{ staff.shiftType }})
+        </mat-option>
+      </mat-select>
+    </mat-form-field>   
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="dialogRef.close()">Cancel</button>
+  <button mat-raised-button class="primary-brown-button" (click)="assignTask()" [disabled]="!selectedStaff">Assign</button>
+</mat-dialog-actions>

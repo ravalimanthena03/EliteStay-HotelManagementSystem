@@ -1,0 +1,62 @@
+/* Container styling */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  mat-card-header {
+    background-color: #74512D;
+    color: white;
+  }
+  
+ /* Styling for the mat-table */
+mat-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;  /* Border around the table */
+    border-radius: 4px;      /* Rounded corners for the table */
+  }
+  /* Header cell styling */
+  mat-header-cell {
+    background-color: #fafafa;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Table row cell styling */
+  mat-cell {
+    text-align: center;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Spinner style */
+  mat-spinner {
+    display: block;
+    margin: 50px auto;
+  }
+  
+  /* Button styling for 'Update Schedule' */
+  .primary-brown-button {
+    background-color: #AF8F6F; 
+    color: white; 
+  }
+  
+  /* Styling for 'Update Schedule' button when disabled */
+  button[disabled] {
+    background-color: #d3d3d3;
+    cursor: not-allowed;
+  }
+  
+  mat-toolbar{
+    background-color: #74512D;
+    color: white;
+  }
+  
+  /* Styling for the action buttons */
+  mat-cell button {
+    margin-right: 8px;
+  }
+  

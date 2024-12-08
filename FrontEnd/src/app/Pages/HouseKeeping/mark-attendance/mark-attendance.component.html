@@ -1,0 +1,21 @@
+<div class="attendance-container">
+    <mat-card class="attendance-card">
+      <mat-card-header>
+        <mat-card-title>Mark Attendance</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="calendar-container ">
+          <mat-calendar
+            [(selected)]="selectedDate"
+            (selectedChange)="onDateChange($event)"
+          ></mat-calendar>
+        </div>
+        <div class="actions">
+          <button mat-raised-button class="primary-brown-button" (click)="markAttendance()">
+            Mark Attendance
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  

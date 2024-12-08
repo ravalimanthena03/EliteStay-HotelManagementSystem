@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "XdxT4X+eDq+nMNdFqEJkxydsazz6mmX4INrvpKiyvyc=",
+  "Source": "HotelManagementSysMongoDB",
+  "BasePath": "_content/HotelManagementSysMongoDB",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

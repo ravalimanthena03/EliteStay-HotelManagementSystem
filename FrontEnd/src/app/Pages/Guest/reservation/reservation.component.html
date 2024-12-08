@@ -1,0 +1,96 @@
+<div class="pt-24">
+<div class="flex flex-col lg:flex-row gap-8 p-6 lg:p-12">
+    <!-- Booking Form -->
+    <div class="flex-[3] bg-white shadow-lg rounded-lg p-6">
+      <h2 class="text-2xl font-bold mb-4">Complete Your Booking</h2>
+      <form class="space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-gray-600 font-medium">First Name</label>
+            <input
+              type="text"
+              [(ngModel)]="firstName"
+              name="firstName"
+              class="w-full border border-gray-300 rounded-lg p-2"
+            />
+          </div>
+          <div>
+            <label class="block text-gray-600 font-medium">Last Name</label>
+            <input
+              type="text"
+              [(ngModel)]="lastName"
+              name="lastName"
+              class="w-full border border-gray-300 rounded-lg p-2"
+            />
+          </div>
+        </div>
+        <div>
+          <label class="block text-gray-600 font-medium">Email Address</label>
+          <input
+            type="email"
+            [(ngModel)]="email"
+            name="email"
+            class="w-full border border-gray-300 rounded-lg p-2"
+          />
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="checkInDate">Check-In Date</label>
+            <input
+              type="date"
+              id="checkInDate"
+              [(ngModel)]="checkInDate"
+              name="checkInDate"
+              class="w-full border border-gray-300 rounded-lg p-2"
+              (change)="calculateTotalPrice()"
+            />
+          </div>
+          <div>
+            <label for="checkOutDate">Check-Out Date</label>
+            <input
+              type="date"
+              id="checkOutDate"
+              [(ngModel)]="checkOutDate"
+              name="checkOutDate"
+              class="w-full border border-gray-300 rounded-lg p-2"
+              (change)="calculateTotalPrice()"
+            />
+          </div>
+        </div>
+        <div>
+            <label class="block text-gray-600 font-medium">Special Requests</label>
+            <input
+              type="text"
+              [(ngModel)]="specialRequests"
+              name="specialRequests"
+              class="w-full border border-gray-300 rounded-lg p-2"
+            />
+        </div>
+        <button
+          type="button"
+          class="w-full text-white font-bold py-2 rounded-lg"
+          style="background-color: #AF8F6F;"
+          (click)="submitReservation()"
+        >
+          Book Now & Pay
+        </button>
+      </form>
+    </div>
+  
+    <!-- Room Details -->
+    <div class="flex-[2] bg-gray-100 shadow-md rounded-lg p-6">
+      <img
+        [src]="selectedRoom?.imagePath"
+        alt="Room Image"
+        class="w-full h-48 object-cover rounded-md mb-4"
+      />
+      <h3 class="text-lg font-semibold text-gray-800">{{ selectedRoom?.roomType }}</h3>
+      <p class="text-gray-600 text-sm">Check-In: {{ checkInDate | date }}</p>
+      <p class="text-gray-600 text-sm">Check-Out: {{ checkOutDate | date }}</p>
+      <p class="text-gray-600 text-sm">
+        Amenities: {{ selectedRoom?.amenities?.join(', ') }}
+      </p>
+      <p class="text-lg font-bold text-olivedrab mt-4">Total Price: ₹{{ totalPrice }}</p>
+    </div>
+  </div>
+</div>

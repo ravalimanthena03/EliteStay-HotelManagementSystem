@@ -1,0 +1,61 @@
+<mat-card class="feedback-card">
+    <mat-card-title class="text-center">Provide Your Feedback</mat-card-title>
+    <form [formGroup]="feedbackForm" (ngSubmit)="submitFeedback()">
+      <!-- Ratings Section -->
+      <div class="rating-section">
+        <!-- Service Feedback -->
+        <mat-form-field  class="full-width">
+          <mat-label>Service Feedback</mat-label>
+          <mat-select formControlName="serviceRating" required>
+            <mat-option *ngFor="let rate of [1, 2, 3, 4, 5]" [value]="rate">
+              {{ rate }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <!-- Dining Feedback -->
+        <mat-form-field class="full-width">
+          <mat-label>Dining Experience</mat-label>
+          <mat-select formControlName="diningRating" required>
+            <mat-option *ngFor="let rate of [1, 2, 3, 4, 5]" [value]="rate">
+              {{ rate }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <!-- Staff Hospitality Feedback -->
+        <mat-form-field  class="full-width">
+          <mat-label>Staff Hospitality</mat-label>
+          <mat-select formControlName="staffRating" required>
+            <mat-option *ngFor="let rate of [1, 2, 3, 4, 5]" [value]="rate">
+              {{ rate }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <!-- Overall Experience -->
+        <mat-form-field  class="full-width">
+          <mat-label>Overall Experience</mat-label>
+          <mat-select formControlName="overallRating" required>
+            <mat-option *ngFor="let rate of [1, 2, 3, 4, 5]" [value]="rate">
+              {{ rate }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+  
+      <!-- Comments -->
+      <mat-form-field  class="full-width">
+        <mat-label>Your Comments</mat-label>
+        <textarea matInput formControlName="comments" rows="3" placeholder="Share your experience"></textarea>
+      </mat-form-field>
+  
+      <!-- Submit Button -->
+      <div class="text-center">
+        <button mat-raised-button color="primary" type="submit" [disabled]="feedbackForm.invalid">
+          Submit Feedback
+        </button>
+      </div>
+    </form>
+  </mat-card>
+  

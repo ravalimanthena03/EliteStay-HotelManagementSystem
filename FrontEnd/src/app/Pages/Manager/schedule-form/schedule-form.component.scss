@@ -1,0 +1,45 @@
+.schedule-form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+  .schedule-card {
+    background-color: #f4f4f4;
+    padding: 20px;
+  }
+  
+  .form-section {
+    margin-bottom: 20px;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .schedule-table-container {
+    margin-top: 30px;
+  }
+  
+  mat-card-header {
+    background-color: #AF8F6F;
+    color: white;
+  }
+  
+  mat-card-title {
+    font-size: 1.5rem;
+  }
+  
+  mat-form-field {
+    width: 100%; /* Ensure full width within the container */
+    margin-bottom: 16px; /* Space between fields */
+  }
+  
+  mat-form-field.mat-form-field {
+    margin-right: 16px; /* Optional: Add margin-right if you want space between fields */
+  }
+  
+  .submit-button{
+    background-color: #AF8F6F;
+  }

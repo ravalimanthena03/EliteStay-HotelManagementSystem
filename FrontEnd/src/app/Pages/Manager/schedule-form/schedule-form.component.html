@@ -1,0 +1,68 @@
+<div class="schedule-form-container">
+    <mat-card class="schedule-card">
+      <mat-card-header>
+        <mat-card-title class="bg-brownLight">Create/Update Staff Schedule</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form [formGroup]="scheduleForm" (ngSubmit)="submitForm()">
+          <div class="form-section">
+            <!-- Staff Member -->
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Staff Member</mat-label>
+              <mat-select formControlName="staffId" required>
+                <mat-option *ngFor="let staff of availableStaff" [value]="staff.id">
+                  {{ staff.username }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="scheduleForm.get('staffId')?.invalid">
+                Staff member is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+  
+          <div class="form-section">
+            <!-- Shift Type -->
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Select Shift</mat-label>
+              <mat-select formControlName="shiftType" required (selectionChange)="onShiftChange()">
+                <mat-option *ngFor="let shift of shiftOptions" [value]="shift.value">
+                  {{ shift.label }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="scheduleForm.get('shiftType')?.invalid">
+                Shift is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+  
+          <div class="form-section">
+            <!-- Shift Start Time -->
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Shift Start Time</mat-label>
+              <input matInput formControlName="shiftStartTime" [readonly]="true" />
+            </mat-form-field>
+          </div>
+  
+          <div class="form-section">
+            <!-- Shift End Time -->
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Shift End Time</mat-label>
+              <input matInput formControlName="shiftEndTime" [readonly]="true" />
+            </mat-form-field>
+          </div>
+  
+          <div class="form-actions">
+            <!-- Submit Button -->
+            <button mat-raised-button class="submit-button" type="submit" [disabled]="scheduleForm.invalid">
+              Submit
+            </button>
+  
+            <!-- Cancel Button -->
+            <button mat-raised-button color="warn" type="button" (click)="initForm()">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>

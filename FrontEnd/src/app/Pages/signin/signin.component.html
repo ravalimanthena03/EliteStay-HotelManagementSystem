@@ -1,0 +1,65 @@
+<div class="container pt-32">
+    <!-- Image Section -->
+    <div class="image-container pt-10">
+      <img src="assets\images\Hotels\Royal Cliff Beach Hotel by DBALP.jpg" alt="Background Image" />
+    </div>
+  
+    <!-- Form Section -->
+    <div class="form-container pt-6">
+      <div class="form-header">
+        <h2>{{ isLogin ? 'LOGIN' : 'SIGNUP' }}</h2>
+        <div class="underline"></div>
+      </div>
+      <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+        <!-- Username -->
+        <div class="form-group" *ngIf="!isLogin">
+          <label for="username">Username</label>
+          <input
+            id="username"
+            type="text"
+            name="username"
+            [(ngModel)]="formData.username"
+            placeholder="Enter your username"
+          />
+        </div>
+  
+        <!-- Email (Only for Signup) -->
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            [(ngModel)]="formData.email"
+            placeholder="Enter your email"
+          />
+        </div>
+  
+        <!-- Password -->
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            name="password"
+            [(ngModel)]="formData.passwordHash"
+            placeholder="Enter your password"
+          />
+        </div>
+  
+        <!-- Submit Button -->
+        <button class="btn" type="submit" [disabled]="authForm.invalid">
+          {{ isLogin ? 'Sign In' : 'Sign Up' }}
+        </button>
+  
+        <!-- Toggle Link -->
+        <p class="toggle-link">
+          {{ isLogin ? "Don't have an account?" : 'Already have an account?' }}
+          <a href="#" (click)="toggleForm($event)">
+            {{ isLogin ? 'Sign up' : 'Sign in' }}
+          </a>
+        </p>
+      </form>
+    </div>
+  </div>
+  

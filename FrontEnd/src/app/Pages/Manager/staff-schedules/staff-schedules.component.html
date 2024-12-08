@@ -1,0 +1,48 @@
+<mat-toolbar class="mat-elevation-z8">
+  <span>Staff Schedules</span>
+</mat-toolbar>
+
+  <mat-card class="mat-elevation-z8">
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="staffId">
+      <mat-header-cell *matHeaderCellDef> Staff Member </mat-header-cell>
+      <mat-cell *matCellDef="let schedule"> {{ schedule.staffId }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="shiftType">
+      <mat-header-cell *matHeaderCellDef> Shift Type </mat-header-cell>
+      <mat-cell *matCellDef="let schedule"> {{ schedule.shiftType }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="shiftStartTime">
+      <mat-header-cell *matHeaderCellDef> Shift Start </mat-header-cell>
+      <mat-cell *matCellDef="let schedule"> {{ schedule.shiftStartTime | date:'shortTime' }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="shiftEndTime">
+      <mat-header-cell *matHeaderCellDef> Shift End </mat-header-cell>
+      <mat-cell *matCellDef="let schedule"> {{ schedule.shiftEndTime | date:'shortTime' }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+      <mat-cell *matCellDef="let schedule"> {{ schedule.status }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+      <mat-cell *matCellDef="let schedule">
+        <button mat-icon-button (click)="editSchedule(schedule)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="deleteSchedule(schedule.scheduleId)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</mat-card>
+

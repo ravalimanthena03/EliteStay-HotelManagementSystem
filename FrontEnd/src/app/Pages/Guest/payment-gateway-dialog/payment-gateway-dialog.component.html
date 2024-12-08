@@ -1,0 +1,51 @@
+<div mat-dialog-content class="text-center">
+    <h2 *ngIf="!paymentSuccessful" class="text-xl font-bold">Enter Card Details</h2>
+    <h2 *ngIf="paymentSuccessful" class="text-xl font-bold text-green-600">
+      Payment Successful!
+    </h2>
+    
+    <div *ngIf="!paymentSuccessful" class="mt-4 space-y-4">
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Card Number</mat-label>
+        <input matInput maxlength="16" [(ngModel)]="cardNumber" type="text" />
+        <mat-error *ngIf="isSubmitted && !isValidCardNumber()">Invalid Card Number</mat-error>
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Expiry Date</mat-label>
+        <input matInput [(ngModel)]="expiryDate" placeholder="MM/YY" type="text" />
+        <mat-error *ngIf="isSubmitted && !isValidExpiryDate()">Invalid Expiry Date</mat-error>
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>CVV</mat-label>
+        <input matInput maxlength="3" [(ngModel)]="cvv" type="password" />
+        <mat-error *ngIf="isSubmitted && !isValidCVV()">Invalid CVV</mat-error>
+      </mat-form-field>
+    </div>
+  
+    <div class="mt-4" *ngIf="paymentSuccessful">
+      <mat-icon class="text-green-500" style="font-size: 60px;">check_circle</mat-icon>
+      <p class="mt-2 text-lg text-gray-600">Thank you! Your payment is complete.</p>
+    </div>
+  </div>
+  
+  <div mat-dialog-actions class="justify-center mt-4">
+    <button
+      mat-raised-button
+      color="primary"
+      *ngIf="!paymentSuccessful"
+      (click)="processPayment()"
+    >
+      Pay Now
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      *ngIf="paymentSuccessful"
+      (click)="closeDialog()"
+    >
+      Close
+    </button>
+  </div>
+  

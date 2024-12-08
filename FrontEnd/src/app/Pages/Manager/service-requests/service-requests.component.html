@@ -1,0 +1,44 @@
+<mat-toolbar class="mat-elevation-z8 primary-button-brown">
+  <span>Service Requests</span>
+</mat-toolbar>
+<div>
+<mat-card  class="mat-elevation-z8">
+    <mat-table [dataSource]="serviceRequests"  class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+        <mat-cell *matCellDef="let request"> {{ request.serviceRequestId }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="serviceType">
+        <mat-header-cell *matHeaderCellDef> Service Type </mat-header-cell>
+        <mat-cell *matCellDef="let request"> {{ request.serviceType }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+        <mat-cell *matCellDef="let request">
+          {{ request.status }}
+        </mat-cell>
+      </ng-container>
+      
+      <ng-container matColumnDef="actions"> 
+        <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-raised-button class="primary-brown-button" (click)="openAssignTaskDialog(element)" 
+                  [disabled]="element.status === 'Assigned' || element.status === 'Completed'">
+            Assign Staff
+          </button>
+          <button mat-icon-button color="warn" (click)="removeAssignedRequest(element.serviceRequestId)" 
+                  *ngIf="element.status === 'Completed'">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+      
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" 
+               [class.completed-row]="row.status === 'Completed'"></mat-row>
+    </mat-table>
+</mat-card>
+</div>
